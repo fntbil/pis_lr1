@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Вход</h1>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <p>{{ form.username.label }}</p>
+            {{ form.username }}
+
+            <p>{{ form.password.label }}</p>
+            {{ form.password }}
+
+            {% if form.errors %}
+                <div class="errors">
+                    {{ form.errors }}
+                </div>
+            {% endif %}
+
+            <button type="submit">Войти</button>
+        </form>
+
+        <p><a href="/register/">Регистрация</a></p>
+        <p><a href="/">На главную</a></p>
+    </div>
+</body>
+</html>

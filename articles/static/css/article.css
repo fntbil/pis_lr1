@@ -1,0 +1,50 @@
+body {
+    background: #1abc9c;
+    font-family: Tahoma, Arial, sans-serif;
+    color: #ffffff;
+    padding: 30px;
+}
+
+a {
+    color: #ffffff;
+}
+
+.archive h1,
+.article h1 {
+    margin-bottom: 30px;
+}
+
+.archive h2,
+.article h1 {
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.one-post {
+    position: relative;
+    padding: 15px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.one-post-shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ffffff;
+    opacity: 0;
+    z-index: 0;
+}
+
+.one-post h2,
+.one-post p,
+.one-post button {
+    position: relative;
+    z-index: 1;
+}
