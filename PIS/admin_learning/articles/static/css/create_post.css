@@ -1,0 +1,39 @@
+body {
+    background: #1abc9c;
+    font-family: Tahoma, Arial, sans-serif;
+    color: #ffffff;
+}
+
+.form-container {
+    width: 700px;
+    margin: 40px auto;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.form-textarea {
+    min-height: 200px;
+    resize: vertical;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+a {
+    color: #ffffff;
+}
+
+.errors {
+    margin: 15px 0;
+    color: #ffeb3b;
+}

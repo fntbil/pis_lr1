@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Коллективный блог</title>
+    <link rel="stylesheet" href="{% static 'css/article.css' %}">
+    <link rel="stylesheet" href="{% static 'css/parallax.css' %}">
+</head>
+<body class="archive">
+
+    <div class="header">
+        <div class="header-top">
+            <img id="site-logo" class="logo" src="{% static 'img/logo.png' %}" alt="Логотип" width="120">
+            <div class="site-title">Коллективный блог</div>
+
+            <div class="header-links">
+                {% if request.user.is_authenticated %}
+                    <span>Вы вошли как {{ request.user.username }}</span>
+                    <a href="/article/new/">Новая статья</a>
+                    <a href="/logout/">Выйти</a>
+                {% else %}
+                    <a href="/login/">Войти</a>
+                    <a href="/register/">Регистрация</a>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="parallax-scene">
+            <img class="parallax-layer layer-back" src="{% static 'img/layer3.png' %}" alt="Слой 3">
+            <img class="parallax-layer layer-middle" src="{% static 'img/layer2.png' %}" alt="Слой 2">
+            <img class="parallax-layer layer-front" src="{% static 'img/layer1.png' %}" alt="Слой 1">
+        </div>
+    </div>
+
+    <div class="content">
+        <h1>Все статьи</h1>
+
+        {% for post in posts %}
+            <div class="one-post">
+                <div class="one-post-shadow"></div>
+
+                <h2><a href="/article/{{ post.id }}/">{{ post.title }}</a></h2>
+                <p class="article-author"><b>Автор:</b> {{ post.author.username }}</p>
+                <p class="article-created-date"><b>Дата:</b> {{ post.created_date }}</p>
+                <p class="article-text">{{ post.get_excerpt }}</p>
+                <button class="toggle-button" type="button">Свернуть</button>
+            </div>
+        {% empty %}
+            <p>Статей пока нет.</p>
+        {% endfor %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="{% static 'js/helloworld.js' %}"></script>
+    <script src="{% static 'js/archive.js' %}"></script>
+    <script src="{% static 'js/highlight-post.js' %}"></script>
+    <script src="{% static 'js/parallax.js' %}"></script>
+</body>
+</html>
